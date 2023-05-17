@@ -1,0 +1,14 @@
+server:
+  port: 8088 #端⼝号
+eureka:
+  instance:
+    hostname: localhost #eureka服务器主机名
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #指定服务器中⼼注册位置
+    register-with-eureka: false #由于我们⽬前创建
+  #的应⽤是⼀个服务注册中⼼，⽽不是普通的应⽤，默认情况下，
+  #这个应⽤会向注册中⼼（也是它⾃⼰）注册它⾃⼰，设置为
+  #false表示禁⽌这种⾃⼰向⾃⼰注册的默认⾏为
+    fetch-registry: false #服务器中⼼不需要去检查其
+  #他服务
